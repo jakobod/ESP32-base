@@ -1,2 +1,5 @@
-# ESP32-base
-This is a Base Project for the ESP32 chip. The setup process can be a little annoying so this is supposed to ease this.
+# Blink Example
+
+Starts a FreeRTOS task to blink an LED
+
+See the README.md file in the upper level 'examples' directory for more information about examples.
