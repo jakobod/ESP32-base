@@ -7,7 +7,7 @@
                 "${IDF_PATH}/components/**"
             ],
             "intelliSenseMode": "gcc-x64",
-            "compilerPath": "/usr/bin/clang",
+            "compilerPath": "${HOME}/esp/xtensa-esp32-elf/bin/xtensa-esp32-elf-cc",
             "cStandard": "c11",
             "cppStandard": "c++17"
         }
