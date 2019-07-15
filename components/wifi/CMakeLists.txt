@@ -1,5 +1,5 @@
 set(COMPONENT_SRCS 
-  "my_main.c"
+  "wifi.c"
 )
 set(COMPONENT_ADD_INCLUDEDIRS ".")
 
