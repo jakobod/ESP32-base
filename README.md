@@ -1,5 +1,8 @@
-# Blink Example
+# ESP-base
 
-Starts a FreeRTOS task to blink an LED
+This is a Base Project for the ESP32 chip. The setup process can be a little annoying so this is supposed to ease this.
 
-See the README.md file in the upper level 'examples' directory for more information about examples.
+# Components
+This project contains some wrapper-components for basic routines that will probably be used.
+  - wifi: A component that wraps connecting to an AP.
+  - udp: A component that wraps opening a udp-server.

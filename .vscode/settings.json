@@ -8,6 +8,8 @@
     "sys.h": "c",
     "esp_event_loop.h": "c",
     "event_groups.h": "c",
-    "wifi.h": "c"
+    "wifi.h": "c",
+    "udp.h": "c",
+    "esp_err.h": "c"
   }
 }
