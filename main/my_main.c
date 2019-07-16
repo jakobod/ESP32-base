@@ -10,6 +10,10 @@
 #include "udp.h"
 #include "ota.h"
 #include "/home/boss/Arduino/libraries/creds/c.h"
+#include "ws2812_control.h"
+
+#define NUM_LEDS (1)
+#define BLACK   0x00000000
 
 const char* TAG = "main";
 
@@ -22,23 +26,14 @@ void app_main() {
   }
   ESP_ERROR_CHECK(ret);
 
-  wifi_connect(SSID, PASS);
-  printf("wifi connected\n");
+  ws2812_control_init();
+  struct led_state new_state;
+  new_state.leds[0] = BLACK;
+  uint8_t val = 0;
 
-  esp_err_t err = udp_server_init(8888);
-  printf("udp_server initialized\n");
-
-  ota_init();
-
-  char* buf = (char*) malloc(2048);
-  if (!buf) {
-    ESP_LOGE(TAG, "buf could not be allocated");
-  }
-  printf("sizeof buf = %d", sizeof(buf));
   while (true) {
-    udp_server_receive(buf, 2048);
-    printf(buf);
-    printf("\n");
-    fflush(stdout);
+    new_state.leds[0] = (val) | (val << 8) | (val << 16);
+    val++;
+    ws2812_write_leds(new_state);
   }
 }
