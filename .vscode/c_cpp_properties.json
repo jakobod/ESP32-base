@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "/usr/local/include",
-                "${IDF_PATH}/components/**"
+                "${IDF_PATH}/components/**",
+                "${workspaceRoot}/components/**"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "${HOME}/esp/xtensa-esp32-elf/bin/xtensa-esp32-elf-cc",

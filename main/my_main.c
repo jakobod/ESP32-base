@@ -8,6 +8,7 @@
 #include "nvs_flash.h"
 #include "wifi.h"
 #include "udp.h"
+#include "ota.h"
 #include "/home/boss/Arduino/libraries/creds/c.h"
 
 const char* TAG = "main";
@@ -26,6 +27,8 @@ void app_main() {
 
   esp_err_t err = udp_server_init(8888);
   printf("udp_server initialized\n");
+
+  ota_init();
 
   char* buf = (char*) malloc(2048);
   if (!buf) {
