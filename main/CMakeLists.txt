@@ -1,5 +1,5 @@
 set(COMPONENT_SRCS 
-  "my_main.c"
+  "my_main.cpp"
 )
 set(COMPONENT_ADD_INCLUDEDIRS ".")
 
