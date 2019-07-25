@@ -28,5 +28,6 @@ extern "C" void app_main() {
   while (true) {
     leds.write(0, value, value, value);
     vTaskDelay(500/portTICK_PERIOD_MS);
+    ++value;
   }
 }
