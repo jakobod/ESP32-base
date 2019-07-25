@@ -1,8 +1,7 @@
 #include "wifi.hpp"
 #include "udp_server.hpp"
-#include "ota.h"
-#include "/home/boss/Arduino/libraries/creds/c.h"
-#include "ws2812_control.h"
+//#include "ota.h"
+#include "ws2812_controller.hpp"
 
 #include <string>
 #include <iostream>
@@ -23,14 +22,11 @@ extern "C" void app_main() {
   }
   ESP_ERROR_CHECK(ret);
 
-  wifi::connect("FAUST-WLAN", "FAUST123");
-  udp_server udp(8888);
+  ws2812_controller<1, GPIO_NUM_18> leds;
 
-  std::vector<uint8_t> buffer(2048);
-  ESP_LOGI(TAG, "Waiting for incoming data");
+  uint8_t value = 0;
   while (true) {
-    auto recv = udp.receive(buffer, 1500);
-    std::string msg(buffer.begin(), buffer.begin()+recv);
-    std::cout << "received " << recv << " bytes: \"" << msg << "\"" << std::endl;
+    leds.write(0, value, value, value);
+    vTaskDelay(500/portTICK_PERIOD_MS);
   }
 }

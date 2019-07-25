@@ -9,10 +9,10 @@
 #include "esp_wifi.h"
 #include "esp_event_loop.h"
 #include "esp_log.h"
-#include "/home/boss/esp/esp-idf/components/app_update/include/esp_ota_ops.h"
-#include "/home/boss/esp/esp-idf/components/esp_http_client/include/esp_http_client.h"
-#include "/home/boss/esp/esp-idf/components/bootloader_support/include/esp_flash_partitions.h"
-#include "/home/boss/esp/esp-idf/components/spi_flash/include/esp_partition.h"
+#include "esp_ota_ops.h"
+#include "esp_http_client.h"
+#include "esp_flash_partitions.h"
+#include "esp_partition.h"
 
 void ota_init(void);
 
