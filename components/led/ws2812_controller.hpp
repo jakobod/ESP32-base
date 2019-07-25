@@ -42,11 +42,13 @@ public:
   }
   ~ws2812_controller() = default;
 
-  void write(int idx, uint8_t red, uint8_t green, uint8_t blue) {
+  void write(int idx, uint8_t red, uint8_t green, uint8_t blue, bool should_update = false) {
     if (idx >= num_leds) return; // guard
 
     leds[idx] = (red << 16 | green << 8 | blue);
-    update();
+    if (should_update) {
+      update();
+    }
   }
 
   void update() {
