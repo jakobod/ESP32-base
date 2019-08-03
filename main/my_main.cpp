@@ -21,14 +21,14 @@ extern "C" void app_main() {
     ret = nvs_flash_init();
   }
   ESP_ERROR_CHECK(ret);
-  const auto led_num = 67;
-  auto leds = new ws2812_controller<led_num, GPIO_NUM_14>;
+  const auto led_num = 30;
+  auto leds = new ws2812_controller<led_num, GPIO_NUM_12, RMT_CHANNEL_0>;
 
   uint8_t value = 255;
   while (true) {
-    for (int i = 0; i < led_num; ++i) {
-      leds->write(i, value, value, value);
+    for(int i = 0; i < led_num; ++i) {
+      leds->write(i, 0, value, 0, true);
+      vTaskDelay(500/portTICK_PERIOD_MS);      
     }
-    leds->update();
   }
 }
